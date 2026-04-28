@@ -1,6 +1,4 @@
-# ltnc25
-
-# Tetris Clone (C++/SDL2)
+# ltnc25 - Tetris Clone (C++/SDL2)
 
 A fully functional Tetris clone built using C++ and the SDL2 library. This project was developed as a technical project during my freshman year at the University of Engineering and Technology, VNU.
 
