@@ -1,38 +1,46 @@
 # ltnc25
 
-1. Thông tin về game: link (github, google doc, youtube), game tham khảo (link, miêu tả) 
-- Github: https://github.com/nhatminhdoan-221/ltnc25
-- Google Drive (văn bản, video): https://drive.google.com/drive/u/0/folders/15-rrZRJno-tgFb_btKELxItqQE4YJHHu
-- Game tham khảo: Tetris (của thầy Khôi)
+# Tetris Clone (C++/SDL2)
 
-2. Các tính năng cải tiến trong game
-- Sử dụng Menu có 2 phương án để lựa chọn các Options trong Menu. Có thể sử dụng chuột và click vào các nhu cầu (Starts Game, Quit, Sound: On/Off). Hoặc có thể sử dụng các nút bấm Lên/Xuống/SpaceBar/Enter để thực hiện chức năng dù không có chuột để click tại Menu. 
-- Trong quá trình chơi game, có thể điều chỉnh hình dáng của tetromino bằng phím Z hoặc phím UP (lên). Có thể bấm phím M, để tắt/bật âm thanh. Có một chiếc đồng hồ để đến thời gian đang chơi được của người chơi ở phía bên trái bảng. Bên phải của bảng chơi, cập nhật điểm số, level, số hàng phá được trong level đó. 
-- Cách tính điểm: Nếu người chơi phá được 1 đến 4 hàng, số điểm lần lượt là 10, 30, 60, 100. Số điểm được cộng vào điểm số tích lũy có công thức: 
-	Số điểm được cộng = Điểm số hàng phá được * (Level của người chơi + 9) / 10
-- Có tối đa 20 levels để người chơi có thể nâng cao điểm số.
-- Tốc độ của các tetromino sẽ tăng dần theo thời gian. 
-- Khi Game Over, kết quả liên quan đến điểm số, level, số hàng đã phá được sẽ hiện lên để thông báo cho người chơi.Người chơi có thể bấm Restart để về trang chính hoặc Quit để dừng tham gia trò chơi.
+A fully functional Tetris clone built using C++ and the SDL2 library. This project was developed as a technical project during my freshman year at the University of Engineering and Technology, VNU.
 
-3. Cấu trúc của project game: Tổ chức lớp, Miêu tả luồng, …
-- Header Files
-	board.h (gọi tên các hàm, biến sử dụng trong bảng chơi)
-	constants.h (lưu lại các giá trị về cửa sổ, hằng số các thành phần trong bảng)
-	game.h (gọi tên các hàm, biến để quản lí và vận hành game: font, âm thanh,....)
-	GameUI.h (gọi tên các hàm để render Game Over và chữ hiện lên trong quá trình chơi)
-	pieces.h (lưu lại cấu tạo các mảnh trong vùng 4x4, vùng chiếm trong không gian của từng mảnh theo cách quay)
-	queue.h (gọi tên các hàm, biến để tạo ra tetromino trong game)
-	tetromino.h (gọi tên các hàm, biến liên quan đến chuyển động, vị trí của tetromino trong bảng)
-- Source Files
-	board.cpp
-	game.cpp
-	GameUI.cpp
-	main.cpp
-	queue.cpp
-	tetromino.cpp
+## Project Structure
+The project is organized to separate source code, assets, and dependencies for better maintainability.
 
-4. Nguồn tham khảo và lấy dữ liệu: âm thanh, đồ họa, chatgpt, 
-- Âm thanh: (Youtube): https://www.youtube.com/watch?v=Ci5squuWW3Q
-- Hình ảnh: Hình được vẽ bởi ChatGPT
-- Font chữ: Press_Start_2P
+```text
+ltnc25/
+├── assets/             # Contains images, sounds, and fonts
+├── libs/               # Contains necessary SDL2 .dll files
+├── src/                # Contains all C++ source code (.cpp, .h)
+├── GAME.sln            # Visual Studio Solution file
+├── GAME.vcxproj        # Visual Studio Project configuration
+└── README.md           # Project documentation
+```
+## Core Features
+* **Dual-Input System:** Supports both mouse-click navigation and keyboard controls (Arrow Keys, Space, Enter) for the Menu and Game UI.
+* **Game Mechanics:** * Dynamic difficulty scaling across 20 levels.
+    * Real-time tracking of score, level, and cleared lines.
+    * Custom scoring formula: `Points = Cleared Lines * (Level + 9) / 10`.
+* **Game Loop & Logic:** Modular design separating game states, rendering, and input handling.
+* **Responsive UI:** Includes a live game timer, pause/resume sound functionality (M key), and post-game results screen.
 
+## Module Descriptions (src/)
+* **main.cpp**: Application entry point.
+* **game.h/cpp**: Orchestrates the main game loop, font rendering, and audio management.
+* **board.h/cpp**: Manages the grid logic and state of the playing field.
+* **tetromino.h/cpp**: Handles piece movement, rotation, and position validation.
+* **queue.h/cpp**: Implements the "Next Piece" generation logic.
+* **pieces.h**: Defines the geometry and rotation matrices for all tetromino shapes.
+* **GameUI.h/cpp**: Handles rendering the HUD, scoreboards, and game-over screens.
+* **constants.h**: Defines global configuration, window dimensions, and game constants.
+
+## Getting Started
+1. Open **GAME.sln** using Visual Studio.
+2. Ensure the project **Include Directories** are set to point to the `src/` folder.
+3. Set the **Working Directory** to the project root so the game can locate the `assets/` folder.
+4. Build and run the solution.
+
+## Credits & Resources
+* **Sound**: [Tetris Theme Remix](https://www.youtube.com/watch?v=Ci5squuWW3Q)
+* **Graphics**: Original assets created via ChatGPT.
+* **Font**: [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P)
