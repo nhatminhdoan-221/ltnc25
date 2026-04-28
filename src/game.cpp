@@ -63,7 +63,7 @@ void Game::Init() {
     std::cerr << "SDL_mixer Initialized!" << std::endl;
 
     // Load Background music
-    backgroundMusic = Mix_LoadMUS("tetristheme.mp3");
+    backgroundMusic = Mix_LoadMUS("assets/tetristheme.mp3");
     if (!backgroundMusic) {
         std::cerr << "Failed to load background music! SDL_mixer Error: " << Mix_GetError() << std::endl;
     }
@@ -104,7 +104,7 @@ void Game::Init() {
     std::cerr << "Renderer created!" << std::endl;
 
     // Load font chu cho score va level
-    font = TTF_OpenFont("PressStart2P-Regular.ttf", 24);  // size 24
+    font = TTF_OpenFont("assets/PressStart2P-Regular.ttf", 24);  // size 24
     if (!font) {
         std::cerr << "Failed to load font (score/level): " << TTF_GetError() << std::endl;
         isRunning = false;
@@ -113,7 +113,7 @@ void Game::Init() {
     std::cerr << "Font (score/level) loaded successfully!" << std::endl;
 
     // Load font chu cho Game Over
-    gameOverFont = TTF_OpenFont("PressStart2P-Regular.ttf", 24);
+    gameOverFont = TTF_OpenFont("assets/PressStart2P-Regular.ttf", 24);
     if (!gameOverFont) {
         std::cerr << "Failed to load font (Game Over): " << TTF_GetError() << std::endl;
         isRunning = false;
@@ -122,7 +122,7 @@ void Game::Init() {
     std::cerr << "Font (Game Over) loaded successfully!" << std::endl;
 
     //Khoi tao menu
-    menuBackgroundTexture = IMG_LoadTexture(renderer, "menuimage.png");
+    menuBackgroundTexture = IMG_LoadTexture(renderer, "assets/menuimage.png");
     if (!menuBackgroundTexture) {
         std::cerr << "Failed to load menu background: " << IMG_GetError() << std::endl;
     }
